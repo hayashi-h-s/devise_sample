@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :posts, only: [:index, :show, :create] do
     resources :likes, only: [:create, :destroy]
+    resources :comments, only: [:create]
   end
   #/posts/likes/create or /posts/likes/destroy を設定している
 

@@ -8,6 +8,9 @@ https://railstutorial.jp/chapters/user_microposts?version=5.1#sec-sample_micropo
 https://railstutorial.jp/chapters/updating_and_deleting_users?version=5.1#sec-sample_users
 
 
+＊コメント機能の追加
+https://qiita.com/nojinoji/items/2034764897c6e91ef982
+
 ＊主な実装
 
 ・deviseを使用したユーザー管理機能

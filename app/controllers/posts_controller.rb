@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
+
   def index
     @posts = Post.all
     @post = Post.new
@@ -7,7 +8,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @like = Like.new    
+    #エラーを聞く。下記では表示される
+    @comment_sample = Comment.find(params[:id])
+    @comments = @post.comments
+    @comment = Comment.new
   end
 
   def create

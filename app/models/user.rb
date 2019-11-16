@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments
   #likesを変数のように使用できる
   #userが削除された時、 posts,likeを全て削除する
   has_many :liked_posts, through: :likes, source: :post
@@ -14,7 +15,7 @@ class User < ApplicationRecord
   #current_user.liked_posts.count　のように簡単に表示できる
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
-  end  
+  end
   #exists?はデータが存在するかどうか知りたい時
   #取得したデータのカラムに値が存在するか知りたい時(nil?)
   #ユーザーが投稿に対して、すでにいいねをしているのかどうかを判定することができる
