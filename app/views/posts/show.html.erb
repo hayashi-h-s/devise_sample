@@ -13,8 +13,8 @@
   <li><%= user.email %></li>
 <% end %>
 
-# エラーを聞く。下記では表示される
-<%= @comment_sample.content %>
+<%# エラーを聞く。下記では表示される %>
+<%= @comment.content %>
 
 <h2>コメント一覧</h2>
 <% @comments.each do |c| %>
@@ -25,10 +25,17 @@
   </div>
 <% end %>
 
-<%= form_for [@post, @comment] do |f| %>
+<%= form_for [@post,@comment] do |f| %>
+  <%= f.hidden_field :post_id %>
   <%= f.text_field :content %>
   <br>
   <%= f.submit 'コメントする' %>
 <% end %>
 
 <%= link_to "ホームへ戻る", posts_path %>
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>

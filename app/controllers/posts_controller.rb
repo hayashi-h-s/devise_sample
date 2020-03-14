@@ -4,14 +4,13 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
+    @random = Post.order("RANDOM()").limit(1)
   end
 
   def show
     @post = Post.find(params[:id])
-    #エラーを聞く。下記では表示される
-    @comment_sample = Comment.find(params[:id])
-    @comments = @post.comments
     @comment = Comment.new
+    @comments = Comment.all
   end
 
   def create

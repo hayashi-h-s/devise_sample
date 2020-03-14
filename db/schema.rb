@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_15_052848) do
+ActiveRecord::Schema.define(version: 2019_12_20_074501) do
+
+  create_table "books", force: :cascade do |t|
+    t.integer "like_id"
+    t.index ["like_id"], name: "index_books_on_like_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -18,6 +23,8 @@ ActiveRecord::Schema.define(version: 2019_11_15_052848) do
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "like_id"
+    t.index ["like_id"], name: "index_comments_on_like_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -36,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_11_15_052848) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "folder_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
