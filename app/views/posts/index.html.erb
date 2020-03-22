@@ -14,6 +14,7 @@
   <% @posts.each do |post| %>
     <a href="/users/<%= post.user.id %>"><%= post.user.email %></a>
     <a href="/posts/<%= post.id %>"><%= post.content %></a>
+    <%= post.image %>
     いいね!(<%= post.liked_users.count %>)
     <hr>
   <% end %>
@@ -21,6 +22,14 @@
 <% else %>
   <%= link_to "ユーザー登録", new_user_registration_path %>
   <%= link_to "ログイン", new_user_session_path %>
+<% end %>
+
+
+<h2>画像投稿</h2>
+
+<%= form_for @post do |f| %>
+  <%= f.file_field :image %>
+  <%= f.submit 'アップロードする'%>
 <% end %>
 
 
