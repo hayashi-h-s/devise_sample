@@ -1,5 +1,6 @@
 <h1>ユーザー一覧</h1>
 <% @users.each do |user| %>
+  <%= image_tag user.image.to_s, class:"image" %>
   <a href="/users/<%= user.id %>"><%= user.email %></a>
   <hr>
 <% end %>

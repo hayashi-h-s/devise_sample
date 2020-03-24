@@ -9,7 +9,7 @@ default: &default
 
 development:
   <<: *default
-  database: sample_development #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
+  database: device_sumple_development #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
 
 test:
   <<: *default

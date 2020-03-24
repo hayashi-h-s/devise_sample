@@ -19,4 +19,5 @@ class User < ApplicationRecord
   #exists?はデータが存在するかどうか知りたい時
   #取得したデータのカラムに値が存在するか知りたい時(nil?)
   #ユーザーが投稿に対して、すでにいいねをしているのかどうかを判定することができる
+  mount_uploader :image, ImageUploader
 end

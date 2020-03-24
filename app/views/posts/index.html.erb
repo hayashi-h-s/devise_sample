@@ -14,7 +14,7 @@
   <% @posts.each do |post| %>
     <a href="/users/<%= post.user.id %>"><%= post.user.email %></a>
     <a href="/posts/<%= post.id %>"><%= post.content %></a>
-    <%= post.image %>
+    <%= image_tag post.image.to_s, class:"image" %>
     いいね!(<%= post.liked_users.count %>)
     <hr>
   <% end %>
