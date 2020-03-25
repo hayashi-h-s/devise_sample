@@ -1,6 +1,10 @@
 <h1>ユーザー一覧</h1>
 <% @users.each do |user| %>
-  <%= image_tag user.image.to_s, class:"image" %>
+  <% if user.image? %>
+    <img src='<%= user.image %>' class="icon" alt="ユーザーアイコン">
+  <% else %>
+    <image src="/assets/how_to1.jpg" class="image" alt="ユーザーアイコン" %>
+  <% end %>
   <a href="/users/<%= user.id %>"><%= user.email %></a>
   <hr>
 <% end %>
