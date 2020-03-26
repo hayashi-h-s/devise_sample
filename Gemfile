@@ -71,3 +71,5 @@ gem 'devise'
 gem 'faker'
 
 gem 'carrierwave'
+
+gem 'kaminari'

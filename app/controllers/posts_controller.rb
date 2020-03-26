@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create]
 
   def index
-    @posts = Post.all
+    # @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(10)
     @post = Post.new
     @random = Post.order("RANDOM()").limit(1)
   end
